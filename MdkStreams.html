@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<title>MdkStreams</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barre de Recherche Personnalisée</title>
+    <body> <h1 class="multicolor"> <span>M</span><span>d</span><span>k</span><span>S</span><span>t</span><span>r</span><span>e</span><span>a</span><span>m</span><span>s</span> </h1> </body>
+    <style>
+        h1{
+            color: white;
+            border: 1px solid red;
+
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background:url('file:///C:/Users/mdk24/Pictures/Project/all%20anime.jpg');
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 5px 10px;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        #search-bar {
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #results {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .result-item {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: white;
+            margin-bottom: 10px;
+        }
+
+        .result-item a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .result-item a:hover {
+            text-decoration: underline;
+        }
+        .multicolor span {
+            animation: colorChange 5s infinite;
+        }
+
+        @keyframes colorChange {
+            0% { color: red; }
+            10% { color: orange; }
+            20% { color: yellow; }
+            30% { color: green; }
+            40% { color: blue; }
+            50% { color: indigo; }
+            60% { color: violet; }
+            70% { color: pink; }
+            80% { color: purple; }
+            90% { color: teal; }
+            100% { color: red; }
+        }
+        .top-left { position: absolute; top: 0; left: 0; margin: 10px; /* facultatif pour ajouter de l'espace */ 
+        }
+        button{
+            background-color: blue;
+            border-radius: 10px;
+        }
+        .button-3d { background-color: #4CAF50; color: white; padding: 15px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 10px 2px; cursor: pointer; border: none; border-radius: 12px; box-shadow: 0 9px #999; transition: all 0.3s ease; } .button-3d:hover { background-color: #45a049; } .button-3d:active { background-color: #45a049; box-shadow: 0 5px #666; transform: translateY(4px); }
+    </style>
+</head> <body><div class="top-left"><a class="connexion" href="file///C:Users/DHOUL-KAMAL/OneDrive/Bureau/html/connexion.html">
+<body> <button class="button-3d">Se Connecter</button> </body></a></div>
+<body>
+    <form id="search-form">
+        <input type="text" placeholder="Rechercher..." id="search-bar">
+        <button type="submit">Chercher</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        const searchBar = document.getElementById('search-bar');
+        const results = document.getElementById('results');
+        const data = [
+            { title: 'Résultat 1 : Exemple de contenu', url: 'https://example.com/contenu' },
+            { title: 'Résultat 2 : Autre exemple', url: 'https://example.com/autre' },
+            { title: 'Résultat 3 : Plus de contenu intéressant', url: 'https://example.com/interessant' },
+            { title: 'Résultat 4 : Encore un autre exemple', url: 'https://example.com/autre-exemple' }
+        ];
+
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = searchBar.value.toLowerCase();
+            results.innerHTML = '';
+            const filteredData = data.filter(item => item.title.toLowerCase().includes(query));
+            filteredData.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('result-item');
+                const link = document.createElement('a');
+                link.href = item.url;
+                link.textContent = item.title;
+                div.appendChild(link);
+                results.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>
+        
